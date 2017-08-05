@@ -1,16 +1,15 @@
-console.log('Loaded!');
-// change the text
-var element=document.getElementById("main-text");
-element.innerHTML = "hello idiot";
+//counter
+var button=document.getElementById('counter');
+var counter=0;
 
-// making image move
- 
-var img=document.getElementById("dino");
-var marginLeft=0;
-function moveRight(){
-    marginLeft = marginLeft + 1;
-    img.style.marginLeft = marginLeft + "px";
+button.onclick = function()
+{
+    // make a request to catch endpoint
+    
+    // capture a request and store it in variable 
+    
+    //render the variable in the correct span
+    counter=counter+1;
+    var span=document.getElementById('count');
+    span.innerHTML = counter.toString();
 }
-img.onclick = function() {
-    var interval = setInterval(moveRight,50);
-};
