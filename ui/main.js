@@ -3,7 +3,7 @@ var button=document.getElementById('counter');
 
 button.onclick = function()
 {
-    // make a request to catch endpoint
+    // create a request object
     var request=new XMLHttpRequest();
     // capture a request and store it in variable 
     request.onreadystatechange = function(){
@@ -14,11 +14,10 @@ button.onclick = function()
                 var span=document.getElementById('count');
                 span.innerHTML = counter.toString();
             }
+            //not yet done
         }
-    
-        //not yet done
     };
-    //render the variable in the correct span
-    response.open('GET','http://gorthiuma.imad.hasura-app.io/counter',true);
-    response.send(null);
+    //make a request 
+    request.open('GET','http://gorthiuma.imad.hasura-app.io/counter',true);
+    request.send(null);
 };
