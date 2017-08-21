@@ -12,9 +12,9 @@ submit.onclick = function(){
                alert('logged in successfully');
             }
             else if(request.status === 403){
-                console.log('username/password is incorrect');
+                alert('username/password is incorrect');
             } else if(request.status === 500) {
-                console.log('something went wrong on the server');
+                alert('something went wrong on the server');
             }
         }
         //not yet done
