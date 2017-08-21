@@ -8,22 +8,23 @@ submit.onclick = function(){
         if(request.readyState === XMLHttpRequest.DONE){
             //take some action
             if(request.status === 200){
-                // capture a list of names and render it as the list
-                var names = request.responseText;
-                names = JSON.parse(names); // converting string into array
-                var list='';
-                for(var i=0;i<names.length;i++){
-                    list += '<li>' + names[i] + '</li>';
-                 }
-                var ul=document.getElementById('namelist');
-                ul.innerHTMl = list;
+               console.log('user logged in');
+               alert('logged in successfully');
             }
-            //not yet done
+            else if(request.status === 403){
+                console.log('username/password is incorrect');
+            } else if(request.status === 500) {
+                console.log('something went wrong on the server');
+            }
         }
+        //not yet done
     };
     //make a request 
     var username=document.getElementById('username').value;
-    var name=nameInput.value;
-    request.open('POST','http://gorthiuma.imad.hasura-app.io/submit-name?name = '+ name,true);
+    var password=document.getElementById('password').value;
+    console.log(username);
+    console.log(password);
+    request.open('POST','http://gorthiuma.imad.hasura-app.io/login',true);
+    request.setRequestHeader('Content-Type','application/json');
     request.send(JSON.stringify({username: username , password: password}));
 };
